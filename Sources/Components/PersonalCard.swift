@@ -6,8 +6,16 @@ struct PersonalCard: HTML {
     let paragraphs: [InlineGroup]
 
     var body: some HTML {
-        Image("/images/\(photo)", description: name).frame(width: .px(200))
-        ForEach(paragraphs) { Text($0) }
+        Grid {
+
+            Image("/images/\(photo)", description: name).frame(width: .px(200)).width(3)
+            Section {
+
+                for paragraph in paragraphs {
+                    Text(paragraph)
+                }
+            }.width(9)
+        }
     }
 }
 
@@ -34,7 +42,9 @@ extension PersonalCard {
                 "I'm the creator and maintainer of "
                 Link("OpenGS", target: "https://github.com/Thomas-Holtvedt/opengs")
                 " (Open Grand Strategy), and its sister-project "
-                Link("OpenGS - Map Tool", target: "https://github.com/Thomas-Holtvedt/opengs-maptool")
+                Link(
+                    "OpenGS - Map Tool", target: "https://github.com/Thomas-Holtvedt/opengs-maptool"
+                )
                 ", which is an initiative to create a free and open sourced framework and tool-set for creating Grand Strategy Games. "
                 "In addition, I am a partnered YouTuber under the "
                 Link("Good Solution Interactive", target: "https://www.youtube.com/@GSInteractive")

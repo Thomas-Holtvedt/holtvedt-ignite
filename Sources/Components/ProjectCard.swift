@@ -21,9 +21,15 @@ struct ProjectCard: HTML {
             Text(name).font(.title4)
         }
         Text(summary)
-        ForEach(paragraphs) { Text($0) }
+        for paragraph: String in paragraphs {
+            Text(paragraph)
+        }
         if !images.isEmpty {
-            Carousel(images) { Slide(background: "/images/\($0)") }
+            Carousel {
+                for image: String in images {
+                    Slide(background: "/images/" + image)
+                }
+            }
         }
         if let destination {
             Link(destination.callToAction, target: destination.url)
