@@ -6,9 +6,13 @@ struct ContactMethod: HTML {
     let description: String
 
     var body: some HTML {
-        Text(header).font(.title4)
-        Text(Link(email, target: "mailto:\(email)"))
-        Text(description)
+        Card {
+
+            Text(header).font(.title4)
+            Text(Link(email, target: "mailto:\(email)"))
+            Text(description)
+        }
+        .style(.height, "100%")
     }
 }
 

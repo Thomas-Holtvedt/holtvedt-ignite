@@ -14,26 +14,29 @@ struct ProjectCard: HTML {
     let destination: Destination?
 
     var body: some HTML {
-        Image(decorative: "/images/\(logo)").frame(height: .px(80))
-        if let destination {
-            Text(Link(name, target: destination.url)).font(.title4)
-        } else {
-            Text(name).font(.title4)
-        }
-        Text(summary)
-        for paragraph: String in paragraphs {
-            Text(paragraph)
-        }
-        if !images.isEmpty {
-            Carousel {
-                for image: String in images {
-                    Slide(background: "/images/" + image)
+        Card {
+
+            Image(decorative: "/images/\(logo)").frame(height: .px(80))
+            if let destination {
+                Text(Link(name, target: destination.url)).font(.title4)
+            } else {
+                Text(name).font(.title4)
+            }
+            Text(summary)
+            for paragraph: String in paragraphs {
+                Text(paragraph)
+            }
+            if !images.isEmpty {
+                Carousel {
+                    for image: String in images {
+                        Slide(background: "/images/" + image)
+                    }
                 }
             }
-        }
-        if let destination {
-            Link(destination.callToAction, target: destination.url)
-        }
+            if let destination {
+                Link(destination.callToAction, target: destination.url)
+            }
+        }.style(.height, "100%")
     }
 }
 

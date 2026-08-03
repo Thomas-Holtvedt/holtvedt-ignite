@@ -12,8 +12,11 @@ struct Home: StaticPage {
             Grid {
                 ContactMethod.pwc
                 ContactMethod.personal
-            }.columns(2)
-        }.id("about")
+            }.columns(2).class("equal-height")
+        }.id("about").frame(minHeight: .custom("calc(100vh - \(NavBar.navBarHeight)px)")).padding(
+            .px(40)
+        )
+        .style(.scrollMarginTop, "\(NavBar.navBarHeight)px")
 
         Section {
             Text("Projects").font(.title2)
@@ -24,18 +27,25 @@ struct Home: StaticPage {
                 ProjectCard.openGS
                 ProjectCard.openGSMapTool
                 ProjectCard.undisclosed
-            }.columns(2)
+            }.columns(2).class("equal-height")
             Text("Archive").font(.title3)
             Text("Projects that are no longer active, but deserve a mention.")
             Grid {
                 ProjectCard.datafunn
                 ProjectCard.panel
-            }.columns(2)
-        }.id("projects")
+            }.columns(2).class("equal-height")
+        }.id("projects").frame(minHeight: .custom("calc(100vh - \(NavBar.navBarHeight)px)"))
+            .padding(
+                .px(40)
+            )
+            .style(.scrollMarginTop, "\(NavBar.navBarHeight)px")
 
         Section {
             Text("Blog").font(.title2)
             Text("Placeholder Blog")
-        }.id("blog")
+        }.id("blog").frame(minHeight: .custom("calc(100vh - \(NavBar.navBarHeight)px)")).padding(
+            .px(40)
+        )
+        .style(.scrollMarginTop, "\(NavBar.navBarHeight)px")
     }
 }

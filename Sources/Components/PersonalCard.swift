@@ -6,7 +6,7 @@ struct PersonalCard: HTML {
     let paragraphs: [InlineGroup]
 
     var body: some HTML {
-        Grid {
+        Grid(alignment: .top) {
 
             Image("/images/\(photo)", description: name).frame(width: .px(200)).width(3)
             Section {

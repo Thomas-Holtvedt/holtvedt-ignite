@@ -3,10 +3,17 @@ import Ignite
 
 struct MainLayout: Layout {
     var body: some Document {
-        Body {
-            NavBar().padding(.bottom, 100)
-            content
-            IgniteFooter()
+        PlainDocument {
+            Head {
+                MetaStyle(".navbar .nav-link", style: WhiteNavLinks())
+                MetaStyle(".navbar > .container", style: BottomAlignedNavItems())
+                MetaStyle(".equal-height > .col", style: StretchedGridItems()).important()
+            }
+            Body {
+                NavBar().padding(.bottom, NavBar.navBarHeight)
+                content
+                IgniteFooter()
+            }
         }
     }
 }
