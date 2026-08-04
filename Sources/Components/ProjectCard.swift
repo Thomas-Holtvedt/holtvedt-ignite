@@ -16,7 +16,7 @@ struct ProjectCard: HTML {
     var body: some HTML {
         Card {
 
-            Image(decorative: "/images/\(logo)").frame(height: .px(80))
+            Image(decorative: "/images/\(logo)").frame(height: .px(80)).class("d-block", "mx-auto")
             if let destination {
                 Text(Link(name, target: destination.url)).font(.title4)
             } else {
@@ -26,17 +26,21 @@ struct ProjectCard: HTML {
             for paragraph: String in paragraphs {
                 Text(paragraph)
             }
-            if !images.isEmpty {
-                Carousel {
-                    for image: String in images {
-                        Slide(background: "/images/" + image)
+            Section {
+                
+                if !images.isEmpty {
+                    Carousel {
+                        for image: String in images {
+                            Slide(background: "/images/" + image)
+                        }
                     }
                 }
-            }
-            if let destination {
-                Link(destination.callToAction, target: destination.url)
-            }
-        }.style(.height, "100%")
+                if let destination {
+                    Link(destination.callToAction, target: destination.url)
+                }
+            }.class("mt-auto")
+        }
+        .style(.height, "100%");
     }
 }
 

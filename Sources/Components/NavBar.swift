@@ -9,12 +9,12 @@ struct NavBar: HTML {
 
         NavigationBar(
             logo: Span("Thomas Holtvedt").font(.system(size: .rem(2.8), weight: .bold))
-                .letterSpacing(3)
+                .letterSpacing(3).foregroundStyle(.light)
         ) {
-
-            Link("About", target: "#about")
-            Link("Projects", target: "#projects")
-            Link("Blog", target: "#blog")
+            //Had to use complete links as "/#section", caused a bug with with postfix /
+            Link("About", target: URL(static: "http://localhost:8000/#about"))
+            Link("Projects", target: URL(static: "http://localhost:8000/#projects"))
+            Link("Blog", target: URL(static: "http://localhost:8000/#blog"))
             Link("LinkedIn", target: "https://www.linkedin.com/in/thomas-holtvedt/")
             Link("GitHub", target: "https://github.com/Thomas-Holtvedt/")
             Link("YouTube", target: "https://www.youtube.com/@GSInteractive")

@@ -24,4 +24,11 @@ struct HoltvedtSite: Site {
 
     var homePage = Home()
     var layout = MainLayout()
+
+    var staticPages: [any StaticPage] {
+        Archive()
+    }
+    var articlePages: [any ArticlePage] {
+        NormalPost()
+    }
 }

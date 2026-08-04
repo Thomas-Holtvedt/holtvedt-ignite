@@ -43,6 +43,8 @@ struct Home: StaticPage {
         Section {
             Text("Blog").font(.title2)
             Text("Placeholder Blog")
+            
+            Link("Read more", target: Archive())
         }.id("blog").frame(minHeight: .custom("calc(100vh - \(NavBar.navBarHeight)px)")).padding(
             .px(40)
         )
