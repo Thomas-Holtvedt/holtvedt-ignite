@@ -2,6 +2,7 @@ import Foundation
 import Ignite
 
 struct Home: StaticPage {
+    @Environment(\.articles) var articles
     var title = "Thomas Holtvedt"
 
     var body: some HTML {
@@ -42,9 +43,14 @@ struct Home: StaticPage {
 
         Section {
             Text("Blog").font(.title2)
-            Text("Placeholder Blog")
+            Text("Latest Articles")
+            Grid(articles.all.sorted { $0.date > $1.date }.prefix(4), alignment: .top) { item in
+                    ArticlePreview(for: item)
+                        .width(3)
+                        .margin(.bottom)
+                }
             
-            Link("Read more", target: Archive())
+            Link("Read more in the article archive", target: Archive())
         }.id("blog").frame(minHeight: .custom("calc(100vh - \(NavBar.navBarHeight)px)")).padding(
             .px(40)
         )

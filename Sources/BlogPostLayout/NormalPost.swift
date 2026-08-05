@@ -8,17 +8,27 @@ struct NormalPost: ArticlePage {
             .padding(.px(40))
         
         Grid{
-            Text("By: \(String(describing: article.author))")
-            Text("By: \(String(describing: article.date))")
-        }.columns(2)
-        
-        if let tagLinks = article.tagLinks() {
-                    HStack(spacing: .xSmall) {
-                        ForEach(tagLinks) { link in
-                            link.font(.title3)
+            Section {
+                
+                Text(article.text)
+            }.width(9)
+            
+            Card {
+                Text(article.author ?? "")
+                //Text(article.Date).formatted(date: .numeric, time: .shortened)
+                
+                Text("\(article.estimatedWordCount) words; \(article.estimatedReadingMinutes) minutes to read.")
+                if let tagLinks = article.tagLinks() {
+                            HStack(spacing: .xSmall) {
+                                ForEach(tagLinks) { link in
+                                    link.font(.title3)
+                                }
+                            }
                         }
-                    }
-                }
+            }.width(3)
+
+        }
+        
         
         
         if let image = article.image {
@@ -27,14 +37,5 @@ struct NormalPost: ArticlePage {
                 .cornerRadius(20)
                 .frame(maxHeight: 300)
         }
-        
-        
-
-
-
-                Text("\(article.estimatedWordCount) words; \(article.estimatedReadingMinutes) minutes to read.")
-    
-
-        Text(article.text)
     }
 }
