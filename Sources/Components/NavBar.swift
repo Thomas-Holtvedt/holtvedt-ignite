@@ -14,7 +14,7 @@ struct NavBar: HTML {
             //Had to use complete links as "/#section", caused a bug with with postfix /
             Link("About", target: URL(static: "http://localhost:8000/#about"))
             Link("Projects", target: URL(static: "http://localhost:8000/#projects"))
-            Link("Blog", target: URL(static: "http://localhost:8000/#blog"))
+            Link("Articles", target: URL(static: "http://localhost:8000/#articles"))
             Link("LinkedIn", target: "https://www.linkedin.com/in/thomas-holtvedt/")
             Link("GitHub", target: "https://github.com/Thomas-Holtvedt/")
             Link("YouTube", target: "https://www.youtube.com/@GSInteractive")

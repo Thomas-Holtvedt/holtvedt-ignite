@@ -34,7 +34,9 @@ struct Home: StaticPage {
             Grid {
                 ProjectCard.datafunn
                 ProjectCard.panel
-            }.columns(2).class("equal-height")
+            }
+            .columns(2)
+            .class("equal-height")
         }.id("projects").frame(minHeight: .custom("calc(100vh - \(NavBar.navBarHeight)px)"))
             .padding(
                 .px(40)
@@ -42,16 +44,18 @@ struct Home: StaticPage {
             .style(.scrollMarginTop, "\(NavBar.navBarHeight)px")
 
         Section {
-            Text("Blog").font(.title2)
-            Text("Latest Articles")
-            Grid(articles.all.sorted { $0.date > $1.date }.prefix(4), alignment: .top) { item in
-                    ArticlePreview(for: item)
-                        .width(3)
-                        .margin(.bottom)
+            Text("Articles").font(.title2)
+            Text("Latest selection")
+            Grid {
+                for article in articles.all.sorted(by: { $0.date > $1.date }).prefix(4) {
+                    ArticlePreview(for: article).style(.height, "100%")
                 }
+            }
+            .columns(4)
+            .class("equal-height")
             
-            Link("Read more in the article archive", target: Archive())
-        }.id("blog").frame(minHeight: .custom("calc(100vh - \(NavBar.navBarHeight)px)")).padding(
+            Link("Read more articles in the archive", target: Archive())
+        }.id("articles").frame(minHeight: .custom("calc(100vh - \(NavBar.navBarHeight)px)")).padding(
             .px(40)
         )
         .style(.scrollMarginTop, "\(NavBar.navBarHeight)px")

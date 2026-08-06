@@ -29,6 +29,7 @@ struct HoltvedtSite: Site {
         Archive()
     }
     var articlePages: [any ArticlePage] {
-        NormalPost()
+        ArticleLayout()
     }
+    var tagPage = TagArchive()
 }

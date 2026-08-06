@@ -1,15 +1,12 @@
 import Foundation
 import Ignite
 
-struct Archive: StaticPage {
-    @Environment(\.articles) var articles
-    
-    var title = "Blog Archive"
+struct TagArchive: TagPage {
     var body: some HTML {
         Section {
-            Text("Article Archive").font(.title2)
+            Text(tag.name).font(.title2)
             Table {
-                for article in articles.all {
+                for article in tag.articles {
                     Row {
                         Link(article)
                         Text(article.subtitle ?? "")
@@ -26,7 +23,7 @@ struct Archive: StaticPage {
                         }
                     }
                 }
-            }header: {
+            } header: {
                 "Article"
                 "Subtitle"
                 "Date Published"
@@ -34,8 +31,8 @@ struct Archive: StaticPage {
                 "Tags"
             }
             .tableStyle(.stripedRows)
+            Link("Back to full archive", target: Archive())
         }
         .padding(.px(40))
-        
     }
 }
