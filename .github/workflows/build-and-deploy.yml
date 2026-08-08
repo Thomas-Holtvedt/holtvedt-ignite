@@ -28,7 +28,7 @@ jobs:
         run: swift run
 
       - name: Add CNAME
-        run: echo "www.holtvedt.com" > Build/CNAME
+        run: echo "holtvedt.com" > Build/CNAME
 
       - uses: actions/upload-pages-artifact@v3
         with:

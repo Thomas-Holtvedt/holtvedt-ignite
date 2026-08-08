@@ -17,7 +17,7 @@ struct IgniteWebsite {
 struct HoltvedtSite: Site {
     var name = "Thomas Holtvedt"
     var titleSuffix = " - Consultant, Technologist, Builder"
-    var url = URL(static: "https://www.holtvedt.com")
+    var url = URL(static: "https://holtvedt.com")
     var builtInIconsEnabled = true
 
     var author = "Thomas Holtvedt"
