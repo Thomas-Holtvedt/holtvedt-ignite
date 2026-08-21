@@ -1,6 +1,8 @@
 ---
 author: Thomas Holtvedt
 date: 2026-08-21
+image: /images/ogs-mt-logo.png
+imageDescription: Map Tool Logo
 lastModified: 2026-08-21
 layout: ArticleLayout
 published: true
@@ -82,7 +84,7 @@ Then the coolest thing happened: What I gave away came back better. Of the commi
 
 And it is not small work either. Guillaume rebuilt the entire user interface and built the project framework that turns this from a script into an application you can actually keep your work in. GermanCodeEngineer built the console and command system, the background task and progress infrastructure, the logging service, and dragged the whole codebase into a structure that can be maintained. Between them they did the two hardest jobs on the project.
 
-The strange arithmetic of it still gets me. I gave away something small and got back something much bigger. Not because anyone owed me, but because when you put work out in the open, people who care about the same problem can find it. They bring skills you do not have. They fix things you had stopped being able to see. The tool is now way better than anything I would have built alone.
+I gave away something small and got back something much bigger. Not because anyone owed me, but because when you put work out in the open, people who care about the same problem can find it. They bring skills you do not have. They fix things you had stopped being able to see. The tool is now way better than anything I would have built alone.
 
 ---
 
