@@ -2,7 +2,7 @@
 author: Thomas Holtvedt
 date: 2026-11-03
 image: /images/ogs-mt-logo.png
-imageDescription: [[ogs-mt-logo.png]]
+imageDescription: Open Grand Strategy Logo
 lastModified: 2026-11-03
 layout: ArticleLayout
 published: true
