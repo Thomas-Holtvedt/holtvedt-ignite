@@ -77,8 +77,6 @@ Moving the data to C++ gains far more than changing the layout inside GDScript.
 
 Looking each province up by id is 17× slower than walking the arrays by index.
 
-An earlier version of this page showed SoA importing 3.7× faster. Most of that came from dev's `province_owner` setter: dev assigned `NNN` first and then the real owner, erasing each province from a growing list. With the identical import, the layout itself gives 1.3×.
-
 ## Why C++ wins by so much
 - **No interpreter.** An empty GDScript loop over 18k provinces already costs 0.24 ms. C++ does the whole loop in 0.017 ms, about 1 ns per province.
 - **Type is a 1-byte enum.** `enum class ProvinceType : uint8_t` keeps the type column at 18 KB and makes the land check a one-byte compare.
@@ -86,9 +84,6 @@ An earlier version of this page showed SoA importing 3.7× faster. Most of that 
 - **Import is mostly parsing.** In GDScript every field split and conversion goes through the interpreter. C++ parses with `std::from_chars` and nlohmann::json directly into the columns.
 
 ## Test setup
-- **Hardware:** AMD Ryzen 9 5900X (Linux VM on that machine)
-- **GDScript:** Godot 4.7.2 headless; dev's `Province.gd` and Experimental's `ProvinceData.gd`
-- **C++:** `gsg_cpp`'s `Archetype` and `Importer` headers with `Component::Type` as `enum class ProvinceType : uint8_t`, plus a history importer in the same style (owner and controller components, nlohmann::json 3.11.3); GCC 11 with `-O2`
+- **Hardware:** AMD Ryzen 9 5900X
 - **Data:** 18,148 provinces, the same `provinces.txt` and `provinces.json` for all three
 - **Method:** median of 15 imports and 200 loop passes, three full reruns; GDScript AoS and SoA runs interleaved
-- **Caveat:** your Windows build uses MSVC, so its C++ numbers may differ slightly
