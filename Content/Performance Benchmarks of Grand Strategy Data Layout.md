@@ -1,11 +1,12 @@
 ---
 author: Thomas Holtvedt
 date: 2026-11-03
-image: /images/ogs-mt-logo.png
+image: /images/ogs-logo2.png
 imageDescription: Open Grand Strategy Logo
 lastModified: 2026-11-03
 layout: ArticleLayout
 published: true
+subtitle: Measuring the difference between different data structures and the use of C++ in Godot
 tags: OpenGS, gamedevelopment
 ---
 # Province Data Benchmark
