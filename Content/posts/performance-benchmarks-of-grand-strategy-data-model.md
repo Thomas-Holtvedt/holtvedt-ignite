@@ -1,6 +1,7 @@
 ---
 author: Thomas Holtvedt
 date: 2026-11-06T10:29:30+01:00
+lastModified: 2026-11-06T11:21:21+01:00
 tags: OpenGS, gamedevelopment
 image: /images/posts/performance-benchmarks-of-grand-strategy-data-model/ogs-logo2.png
 ---
